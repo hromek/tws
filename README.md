@@ -2,9 +2,6 @@
 
 ## Writing Samples
 
-[Old Writing Samples][1]
+[Old Writing Samples](https://hromek.github.io/writing-samples/)
 
-[Swagger][2] 
-
-[1]:	https://hromek.github.io/writing-samples/
-[2]:	https://hromek.github.io/ws/swagger-ui/
+[Swagger](https://hromek.github.io/ws/swagger-ui/)
