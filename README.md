@@ -1,4 +1,4 @@
 
 
 
-Go to the [Writing Samples](index.html).
+Go to the [Writing Samples](https://hromek.github.io/ws).
