@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "(tbd)"
   version: "1.0.0"
-  title: "Band Finder API"
+  title: "BandMeetUp API Reference"
   contact:
     name: "Bernard Hromek"
     url: "http://hromek.github.io/writing-samples/"
@@ -15,11 +15,11 @@ host: "virtserver.swaggerhub.com"
 basePath: "/hromek/BandFinder/1.0.0"
 tags:
 - name: "Accounts"
-  description: "Account operations."
+  description: "Account operations"
 - name: "Bands"
-  description: "Band operations."
+  description: "Band operations"
 - name: "Musicians"
-  description: "Musician operations."
+  description: "Musician operations"
 schemes:
 - "https"
 consumes:
@@ -31,12 +31,13 @@ paths:
     get:
       tags:
       - "Accounts"
-      summary: "Gets information for all accounts."
-      description: "(tbd)"
+      summary: "Get a list of all accounts."
+      description: "Returns an array containing information for all accounts in the\
+        \ BandMeetUp system.\n"
       parameters: []
       responses:
         200:
-          description: "Returns a list of all accounts in the system."
+          description: "OK."
           schema:
             type: "array"
             items:
@@ -44,9 +45,48 @@ paths:
     post:
       tags:
       - "Accounts"
-      summary: "Creates a new account."
-      description: "(tbd)"
+      summary: "Create a new account"
+      description: "Creates a new user account."
       parameters:
+      - name: "email"
+        in: "query"
+        description: "The user's email address, which is also the account user name.\n"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK."
+          schema:
+            $ref: "#/definitions/Account"
+  /accounts/{id}:
+    get:
+      tags:
+      - "Accounts"
+      summary: "Get account information"
+      description: "Gets information for a specific account."
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "A unique account identifier."
+        required: true
+        type: "integer"
+      responses:
+        200:
+          description: "OK."
+          schema:
+            $ref: "#/definitions/Account"
+    put:
+      tags:
+      - "Accounts"
+      summary: "Update account information"
+      description: "Updates account information. Note that the parameter *id* is\n\
+        ignored for this operation.\n"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "A unique account identifier."
+        required: true
+        type: "integer"
       - in: "body"
         name: "account"
         description: "(tbd)"
@@ -56,40 +96,43 @@ paths:
       responses:
         200:
           description: "OK."
-  /accounts/{id}:
-    get:
+    delete:
       tags:
       - "Accounts"
-      summary: "Gets information for a specific account"
-      description: "(tbd)"
+      summary: "Delete an account"
+      description: "Deletes a specific account. Users can only delete their own accounts.\
+        \ When an account is deleted, the associated musician and bands are also deleted."
       parameters:
       - name: "id"
         in: "path"
-        description: "(tbd)"
+        description: "A unique account identifier."
         required: true
         type: "integer"
       responses:
         200:
-          description: "Returns information for a specific account."
-          schema:
-            $ref: "#/definitions/Account"
+          description: "OK"
+  /accounts/{id}/password:
     put:
       tags:
       - "Accounts"
-      summary: "Updates account information."
-      description: "(tbd)"
+      summary: "Change an account password."
+      description: "Changes the password for an account."
       parameters:
       - name: "id"
         in: "path"
-        description: "(tbd)"
+        description: "A unique account identifier."
         required: true
         type: "integer"
-      - in: "body"
-        name: "account"
-        description: "(tbd)"
+      - name: "currentPassword"
+        in: "query"
+        description: "The user's current password."
         required: true
-        schema:
-          $ref: "#/definitions/Account"
+        type: "string"
+      - name: "newPassword"
+        in: "query"
+        description: "The user's new password."
+        required: true
+        type: "string"
       responses:
         200:
           description: "OK."
@@ -97,35 +140,38 @@ paths:
     get:
       tags:
       - "Bands"
-      summary: "Gets band information."
-      description: "Returns information for one or more bands based on the query parameters."
+      summary: "Search for bands"
+      description: "Returns information for one or more bands based on the query parameters.\
+        \ You can specify zero or more parameters. If no parameters are specified,\
+        \ no records are returned.\n"
       parameters:
       - name: "name"
         in: "query"
-        description: "(tbd)"
+        description: "The full, or partial, band name."
         required: false
         type: "string"
       - name: "genre"
         in: "query"
-        description: "(tbd)"
+        description: "A music genre. You can use a comma-separated list to specify\
+          \ mulple genres."
         required: false
         type: "string"
       - name: "location"
         in: "query"
-        description: "(tbd)"
+        description: "The city and state where the band is located. You can specify\
+          \ the city, the state, or both. Altenatively, you can specify a zip code."
         required: false
         type: "string"
       - name: "instrumentsNeeded"
         in: "query"
-        description: "(tbd)"
+        description: "A comma-separated list of instruments needed by the band. \n"
         required: false
         type: "array"
         items:
           type: "string"
-        collectionFormat: "multi"
       responses:
         200:
-          description: "Returns a list of bands."
+          description: "Ok."
           schema:
             type: "array"
             items:
@@ -133,80 +179,100 @@ paths:
     post:
       tags:
       - "Bands"
-      summary: "Creates a new band."
-      description: "(tbd)"
+      summary: "Create a new band"
+      description: "Creates a new band with the specified *bandName*.\n"
       parameters:
-      - in: "body"
-        name: "band"
-        description: "(tbd)"
+      - name: "bandName"
+        in: "query"
+        description: "The name of the band."
         required: true
-        schema:
-          $ref: "#/definitions/Band"
+        type: "string"
       responses:
         200:
           description: "OK."
+          schema:
+            $ref: "#/definitions/Band"
   /bands/{id}:
     get:
       tags:
       - "Bands"
-      summary: "Gets information for a specific band."
-      description: "(tbd)"
+      summary: "Get band information."
+      description: "Gets information for a specific band."
       parameters:
       - name: "id"
         in: "path"
-        description: "(tbd)"
+        description: "A unique band identifier."
         required: true
         type: "integer"
       responses:
         200:
-          description: "Returns information for a specific band."
+          description: "OK."
           schema:
             $ref: "#/definitions/Band"
     put:
       tags:
       - "Bands"
-      summary: "Updates band information."
-      description: "(tbd)"
+      summary: "Update band information"
+      description: "Updates information for a specific band."
       parameters:
       - name: "id"
         in: "path"
-        description: "(tbd)"
+        description: "A unique band identifier."
         required: true
         type: "integer"
       - in: "body"
         name: "band"
-        description: "(tbd)"
+        description: "The band information."
         required: true
         schema:
           $ref: "#/definitions/Band"
       responses:
         200:
           description: "OK."
+    delete:
+      tags:
+      - "Bands"
+      summary: "Delete a band."
+      description: "Deletes a specific band. Users can only delete bands associated\
+        \ with their accounts."
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "A unique band identifier."
+        required: true
+        type: "integer"
+      responses:
+        200:
+          description: "OK"
   /musicians:
     get:
       tags:
       - "Musicians"
-      summary: "Gets musician information."
-      description: "(tbd)"
+      summary: "Search for musicians"
+      description: "Returns information for one or more musicians based on the query\
+        \ parameters. You can specify zero or more parameters. If no parameters are\
+        \ specified, no records are returned.\n"
       parameters:
       - name: "name"
         in: "query"
-        description: "(tbd)"
+        description: "The full, or partial, musician name."
         required: false
         type: "string"
       - name: "genre"
         in: "query"
-        description: "(tbd)"
+        description: "A music genre. You can use a comma-separated list to specify\
+          \ mulple genres.\n"
         required: false
         type: "string"
       - name: "location"
         in: "query"
-        description: "(tbd)"
+        description: "The city and state where the band is located. You can specify\
+          \ the city, the state, or both. Alternatively, you can specify a zip code.\n"
         required: false
         type: "string"
       - name: "instumentPlayed"
         in: "query"
-        description: "(tbd)"
+        description: "A comma-separated list of instruments that the musician plays.\n"
         required: false
         type: "string"
       responses:
@@ -219,28 +285,29 @@ paths:
     post:
       tags:
       - "Musicians"
-      summary: "Creates a musician."
-      description: "(tbd)"
+      summary: "Create a musician"
+      description: "Creates a new musician with the specified *musicianName*."
       parameters:
-      - in: "body"
-        name: "musician"
-        description: "(tbd)"
+      - name: "musicianName"
+        in: "query"
+        description: "The name of the musician."
         required: true
-        schema:
-          $ref: "#/definitions/Musician"
+        type: "string"
       responses:
         200:
           description: "OK."
+          schema:
+            $ref: "#/definitions/Musician"
   /musicians/{id}:
     get:
       tags:
       - "Musicians"
-      summary: "Get information for a specific musician."
-      description: "(tbd)"
+      summary: "Get musician information"
+      description: "Returns information for a specific musician."
       parameters:
       - name: "id"
         in: "path"
-        description: "(tbd)"
+        description: "A unique musician name."
         required: true
         type: "integer"
       responses:
@@ -249,40 +316,55 @@ paths:
     put:
       tags:
       - "Musicians"
-      summary: "Updates musician information."
-      description: "(tbd)"
+      summary: "Update musician information"
+      description: "Updates information for a specific musician."
       parameters:
       - name: "id"
         in: "path"
-        description: "(tbd)"
+        description: "A unique musician identifier."
         required: true
         type: "integer"
       - in: "body"
         name: "musician"
-        description: "(tbd)"
+        description: "The information for the musician."
         required: true
         schema:
           $ref: "#/definitions/Musician"
       responses:
         200:
           description: "OK."
+    delete:
+      tags:
+      - "Musicians"
+      summary: "Delete a musician"
+      description: "Deletes a specific musician. Users can only delete musicians associated\
+        \ with their accounts."
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "A unique musician identifier."
+        required: true
+        type: "integer"
+      responses:
+        200:
+          description: "OK"
 definitions:
   Account:
     required:
+    - "email"
     - "id"
-    - "userName"
     properties:
       id:
         type: "integer"
         description: "A unique account identifier."
-      userName:
+      email:
         type: "string"
         description: "Accounts use eEmail addresses for usernames."
-    description: "Respresents the information associated with and account. Accounts\
+    description: "Represents the information associated with an account. Accounts\
       \ exist independent of bands and musicians."
     example:
       id: 0
-      userName: "userName"
+      email: "email"
   Band:
     required:
     - "id"
@@ -297,7 +379,7 @@ definitions:
           \ be unique."
       genres:
         type: "array"
-        description: "Music genres perfomred by the band."
+        description: "Music genres performed by the band."
         items:
           type: "string"
       location:
@@ -347,8 +429,8 @@ definitions:
           type: "string"
       vocals:
         type: "boolean"
-        description: "An indicator if the musician sings."
-    description: "Represents a single musician. A musician is assocated with a single\
+        description: "Indicates if the musician sings."
+    description: "Represents a single musician. A musician is associated with a single\
       \ account and an account is associated with a single musician (a one-to-one\
       \ relationship)."
     example:
