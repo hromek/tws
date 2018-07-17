@@ -1,7 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  description: The BandMeetUp REST API provides operations for creating, viewing, and modifying accounts and information.
+  description: The BandMeetUp REST API provides operations for creating, viewing, and modifying information for bands, musicians, and accounts.
   version: 1.0.0
   title: BandMeetUp API Reference
   contact:
