@@ -705,7 +705,7 @@ margin-bottom: 20px;
     },
     "email" : {
       "type" : "string",
-      "description" : "Accounts use eEmail addresses for usernames."
+      "description" : "Accounts use email addresses for usernames."
     }
   },
   "description" : "Represents the information associated with an account. Accounts exist independent of bands and musicians.",
@@ -2655,7 +2655,7 @@ public class BandsApiExample {
     public static void main(String[] args) {
         
         BandsApi apiInstance = new BandsApi();
-        String name = name_example; // String | The full, or partial, band name.
+        String name = name_example; // String | The full or partial band name.
         String genre = genre_example; // String | A music genre. You can use a comma-separated list to specify mulple genres.
         String location = location_example; // String | The city and state where the band is located. You can specify the city, the state, or both. Altenatively, you can specify a zip code.
         array[String] instrumentsNeeded = ; // array[String] | A comma-separated list of instruments needed by the band. 
@@ -2678,7 +2678,7 @@ public class BandsApiExample {
 
     public static void main(String[] args) {
         BandsApi apiInstance = new BandsApi();
-        String name = name_example; // String | The full, or partial, band name.
+        String name = name_example; // String | The full or partial band name.
         String genre = genre_example; // String | A music genre. You can use a comma-separated list to specify mulple genres.
         String location = location_example; // String | The city and state where the band is located. You can specify the city, the state, or both. Altenatively, you can specify a zip code.
         array[String] instrumentsNeeded = ; // array[String] | A comma-separated list of instruments needed by the band. 
@@ -2698,7 +2698,7 @@ public class BandsApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Bands-bandGet-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *name = name_example; // The full, or partial, band name. (optional)
+                              <pre class="prettyprint"><code class="language-cpp">String *name = name_example; // The full or partial band name. (optional)
 String *genre = genre_example; // A music genre. You can use a comma-separated list to specify mulple genres. (optional)
 String *location = location_example; // The city and state where the band is located. You can specify the city, the state, or both. Altenatively, you can specify a zip code. (optional)
 array[String] *instrumentsNeeded = ; // A comma-separated list of instruments needed by the band. 
@@ -2728,7 +2728,7 @@ BandsApi *apiInstance = [[BandsApi alloc] init];
 var api = new BandMeetUpApiReference.BandsApi()
 
 var opts = { 
-  'name': name_example, // {String} The full, or partial, band name.
+  'name': name_example, // {String} The full or partial band name.
   'genre': genre_example, // {String} A music genre. You can use a comma-separated list to specify mulple genres.
   'location': location_example, // {String} The city and state where the band is located. You can specify the city, the state, or both. Altenatively, you can specify a zip code.
   'instrumentsNeeded':  // {array[String]} A comma-separated list of instruments needed by the band. 
@@ -2764,7 +2764,7 @@ namespace Example
         {
             
             var apiInstance = new BandsApi();
-            var name = name_example;  // String | The full, or partial, band name. (optional) 
+            var name = name_example;  // String | The full or partial band name. (optional) 
             var genre = genre_example;  // String | A music genre. You can use a comma-separated list to specify mulple genres. (optional) 
             var location = location_example;  // String | The city and state where the band is located. You can specify the city, the state, or both. Altenatively, you can specify a zip code. (optional) 
             var instrumentsNeeded = new array[String](); // array[String] | A comma-separated list of instruments needed by the band. 
@@ -2791,7 +2791,7 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\BandsApi();
-$name = name_example; // String | The full, or partial, band name.
+$name = name_example; // String | The full or partial band name.
 $genre = genre_example; // String | A music genre. You can use a comma-separated list to specify mulple genres.
 $location = location_example; // String | The city and state where the band is located. You can specify the city, the state, or both. Altenatively, you can specify a zip code.
 $instrumentsNeeded = ; // array[String] | A comma-separated list of instruments needed by the band. 
@@ -2812,7 +2812,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::BandsApi;
 
 my $api_instance = WWW::SwaggerClient::BandsApi->new();
-my $name = name_example; # String | The full, or partial, band name.
+my $name = name_example; # String | The full or partial band name.
 my $genre = genre_example; # String | A music genre. You can use a comma-separated list to specify mulple genres.
 my $location = location_example; # String | The city and state where the band is located. You can specify the city, the state, or both. Altenatively, you can specify a zip code.
 my $instrumentsNeeded = []; # array[String] | A comma-separated list of instruments needed by the band. 
@@ -2836,7 +2836,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.BandsApi()
-name = name_example # String | The full, or partial, band name. (optional)
+name = name_example # String | The full or partial band name. (optional)
 genre = genre_example # String | A music genre. You can use a comma-separated list to specify mulple genres. (optional)
 location = location_example # String | The city and state where the band is located. You can specify the city, the state, or both. Altenatively, you can specify a zip code. (optional)
 instrumentsNeeded =  # array[String] | A comma-separated list of instruments needed by the band. 
@@ -2875,7 +2875,7 @@ except ApiException as e:
                 </span>
 
                     <div class="inner description">
-                        The full, or partial, band name.
+                        The full or partial band name.
                     </div>
             </div>
         </div>
@@ -4181,8 +4181,8 @@ public class MusiciansApiExample {
     public static void main(String[] args) {
         
         MusiciansApi apiInstance = new MusiciansApi();
-        String name = name_example; // String | The full, or partial, musician name.
-        String genre = genre_example; // String | A music genre. You can use a comma-separated list to specify mulple genres.
+        String name = name_example; // String | The full or partial musician name.
+        String genre = genre_example; // String | A music genre. You can use a comma-separated list to specify multiple genres.
 
         String location = location_example; // String | The city and state where the band is located. You can specify the city, the state, or both. Alternatively, you can specify a zip code.
 
@@ -4206,8 +4206,8 @@ public class MusiciansApiExample {
 
     public static void main(String[] args) {
         MusiciansApi apiInstance = new MusiciansApi();
-        String name = name_example; // String | The full, or partial, musician name.
-        String genre = genre_example; // String | A music genre. You can use a comma-separated list to specify mulple genres.
+        String name = name_example; // String | The full or partial musician name.
+        String genre = genre_example; // String | A music genre. You can use a comma-separated list to specify multiple genres.
 
         String location = location_example; // String | The city and state where the band is located. You can specify the city, the state, or both. Alternatively, you can specify a zip code.
 
@@ -4228,8 +4228,8 @@ public class MusiciansApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Musicians-musiciansGet-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *name = name_example; // The full, or partial, musician name. (optional)
-String *genre = genre_example; // A music genre. You can use a comma-separated list to specify mulple genres.
+                              <pre class="prettyprint"><code class="language-cpp">String *name = name_example; // The full or partial musician name. (optional)
+String *genre = genre_example; // A music genre. You can use a comma-separated list to specify multiple genres.
  (optional)
 String *location = location_example; // The city and state where the band is located. You can specify the city, the state, or both. Alternatively, you can specify a zip code.
  (optional)
@@ -4260,8 +4260,8 @@ MusiciansApi *apiInstance = [[MusiciansApi alloc] init];
 var api = new BandMeetUpApiReference.MusiciansApi()
 
 var opts = { 
-  'name': name_example, // {String} The full, or partial, musician name.
-  'genre': genre_example, // {String} A music genre. You can use a comma-separated list to specify mulple genres.
+  'name': name_example, // {String} The full or partial musician name.
+  'genre': genre_example, // {String} A music genre. You can use a comma-separated list to specify multiple genres.
 
   'location': location_example, // {String} The city and state where the band is located. You can specify the city, the state, or both. Alternatively, you can specify a zip code.
 
@@ -4298,8 +4298,8 @@ namespace Example
         {
             
             var apiInstance = new MusiciansApi();
-            var name = name_example;  // String | The full, or partial, musician name. (optional) 
-            var genre = genre_example;  // String | A music genre. You can use a comma-separated list to specify mulple genres.
+            var name = name_example;  // String | The full or partial musician name. (optional) 
+            var genre = genre_example;  // String | A music genre. You can use a comma-separated list to specify multiple genres.
  (optional) 
             var location = location_example;  // String | The city and state where the band is located. You can specify the city, the state, or both. Alternatively, you can specify a zip code.
  (optional) 
@@ -4327,8 +4327,8 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\MusiciansApi();
-$name = name_example; // String | The full, or partial, musician name.
-$genre = genre_example; // String | A music genre. You can use a comma-separated list to specify mulple genres.
+$name = name_example; // String | The full or partial musician name.
+$genre = genre_example; // String | A music genre. You can use a comma-separated list to specify multiple genres.
 
 $location = location_example; // String | The city and state where the band is located. You can specify the city, the state, or both. Alternatively, you can specify a zip code.
 
@@ -4350,8 +4350,8 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::MusiciansApi;
 
 my $api_instance = WWW::SwaggerClient::MusiciansApi->new();
-my $name = name_example; # String | The full, or partial, musician name.
-my $genre = genre_example; # String | A music genre. You can use a comma-separated list to specify mulple genres.
+my $name = name_example; # String | The full or partial musician name.
+my $genre = genre_example; # String | A music genre. You can use a comma-separated list to specify multiple genres.
 
 my $location = location_example; # String | The city and state where the band is located. You can specify the city, the state, or both. Alternatively, you can specify a zip code.
 
@@ -4376,8 +4376,8 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.MusiciansApi()
-name = name_example # String | The full, or partial, musician name. (optional)
-genre = genre_example # String | A music genre. You can use a comma-separated list to specify mulple genres.
+name = name_example # String | The full or partial musician name. (optional)
+genre = genre_example # String | A music genre. You can use a comma-separated list to specify multiple genres.
  (optional)
 location = location_example # String | The city and state where the band is located. You can specify the city, the state, or both. Alternatively, you can specify a zip code.
  (optional)
@@ -4417,7 +4417,7 @@ except ApiException as e:
                 </span>
 
                     <div class="inner description">
-                        The full, or partial, musician name.
+                        The full or partial musician name.
                     </div>
             </div>
         </div>
@@ -4437,7 +4437,7 @@ except ApiException as e:
                 </span>
 
                     <div class="inner description">
-                        A music genre. You can use a comma-separated list to specify mulple genres.
+                        A music genre. You can use a comma-separated list to specify multiple genres.
 
                     </div>
             </div>
@@ -5633,7 +5633,7 @@ except ApiException as e:
           <div id="footer">
             <div id="api-_footer">
               <p>Suggestions, contact, support and error reporting;
-                  <div class="app-desc">Information URL: <a href="http://hromek.github.io/writing-samples/">http://hromek.github.io/writing-samples/</a></div>
+                  <div class="app-desc">Information URL: <a href="http://hromek.github.io/ws/">http://hromek.github.io/ws/</a></div>
                   <div class="app-desc">Contact Info: <a href="bhromek1@verizon.net">bhromek1@verizon.net</a></div>
               </p>
                 <div class="license-info">Apache 2.0</div>

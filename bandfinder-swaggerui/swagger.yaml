@@ -6,7 +6,7 @@ info:
   title: BandMeetUp API Reference
   contact:
     name: Bernard Hromek
-    url: http://hromek.github.io/writing-samples/
+    url: http://hromek.github.io/ws/
     email: bhromek1@verizon.net
   license:
     name: Apache 2.0
@@ -153,7 +153,7 @@ paths:
       parameters:
       - name: name
         in: query
-        description: The full, or partial, band name.
+        description: The full or partial band name.
         required: false
         type: string
       - name: genre
@@ -267,13 +267,13 @@ paths:
       parameters:
       - name: name
         in: query
-        description: The full, or partial, musician name.
+        description: The full or partial musician name.
         required: false
         type: string
       - name: genre
         in: query
         description: |
-          A music genre. You can use a comma-separated list to specify mulple genres.
+          A music genre. You can use a comma-separated list to specify multiple genres.
         required: false
         type: string
       - name: location
@@ -377,7 +377,7 @@ definitions:
         description: A unique account identifier.
       email:
         type: string
-        description: Accounts use eEmail addresses for usernames.
+        description: Accounts use email addresses for usernames.
     description: Represents the information associated with an account. Accounts exist independent of bands and musicians.
     example:
       id: 0
